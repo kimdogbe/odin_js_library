@@ -1,0 +1,15 @@
+* {
+  box-sizing: content-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+.shelf {
+  display: grid;
+
+  background-color: bisque;
+}
+
+.book {
+  background-color: aliceblue;
+}
