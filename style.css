@@ -4,12 +4,16 @@
   margin: 0px;
 }
 
-.shelf {
+#shelf {
   display: grid;
-
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  gap: 10px;
   background-color: bisque;
 }
 
-.book {
+#shelf > div {
   background-color: aliceblue;
+  padding: 10px;
+  border-radius: 10px;
 }
