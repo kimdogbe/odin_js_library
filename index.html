@@ -9,6 +9,32 @@
 </head>
 <body>
   <h1>Kwame's Library</h1>
+
+  <dialog>
+    <form action="POST" id="book-info">
+      <label for="book-name">Book Title</label>
+      <input type="text" id="book-name" name="book-name" placeholder="The List" autofocus>
+
+      <label for="book-name">Author</label>
+      <input type="text" id="book-author" name="book-author" placeholder="Yomi Adegoke">
+
+      <label for="book-name">Number of pages</label>
+      <input type="number" id="book-page-count" name="book-page-count" placeholder="320">
+
+      <label for="book-name">Have you read this yet?</label>
+      <div>
+        <label for="book-complete">Yes</label>
+        <input type="radio" id="book-complete" name="book-completed">
+        <label for="book-incomplete">No</label>
+        <input type="radio" id="book-incomplete" name="book-completed">
+      </div>
+
+      <input type="submit" name="book-submit" id="book-submit">
+    </form>
+    <button>Close</button>
+  </dialog>
+  <button id="add-book">Add book</button>
+  
   <div id="shelf">
   </div>
 </body>

@@ -3,6 +3,11 @@ const library = [
   new Book("Tomorrow, tomorrow and tomorrow", "RS James", 347, true)
 ]
 
+const newBookForm = document.querySelector("dialog");
+const addBookBtn = document.querySelector("dialog + button");
+const closeModal = document.querySelector("dialog button");
+const submitBook = document.querySelector("dialog #book-submit");
+
 function Book(title, author, pages, read){
   this.title = title;
   this.author = author;
@@ -14,8 +19,10 @@ function Book(title, author, pages, read){
   }
 }
 
-function addBookToLibrary(){
-  return true;
+function addBookToLibrary(e){
+  // const bookInfo = document.querySelector("#book-info");
+  // const formData = new FormData(bookInfo);
+  console.log(`book submitted ${e}`);
 }
 
 function createBookCards(book){
@@ -37,5 +44,17 @@ function displayBooks(books) {
     createBookCards(book);
   }
 }
+
+addBookBtn.addEventListener("click", () => {
+  newBookForm.showModal();
+});
+
+closeModal.addEventListener("click", () => {
+  newBookForm.close();
+});
+
+submitBook.addEventListener("click", (event) => {
+  addBookToLibrary(event);
+});
 
 displayBooks(library)
