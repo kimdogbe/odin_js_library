@@ -1,6 +1,6 @@
 const library = [
   new Book("Harry Potter", "JK Rowling", 354, true),
-  new Book("Tomorrow, tomorrow and tomorrow", "RS James", 347, true)
+  new Book("Tomorrow, tomorrow and tomorrow", "RS James", 347, false)
 ]
 
 const newBookForm = document.querySelector("dialog");
@@ -39,8 +39,13 @@ function createBookCards(book, index){
   let bookDeleteBtn = document.createElement("button");
   bookDeleteBtn.innerHTML = 'Delete'
 
+  let bookReadBtn = document.createElement("button");
+  bookReadBtn.innerHTML = book.read ? "Status: Read" : "Status: Unread";
+
   bookDiv.appendChild(bookInfo);
+  bookDiv.appendChild(bookReadBtn);
   bookDiv.appendChild(bookDeleteBtn);
+
   console.log(bookDiv);
 
   shelf.appendChild(bookDiv);
@@ -54,20 +59,23 @@ function displayBooks(books) {
 }
 
 addEventListener("click", (event) => {
+  let bookIndex = event.target.parentElement.id.split("-")[1]
+
   if (event.target.innerHTML === "Delete") {
-    let bookIndex = event.target.parentElement.id.split("-")[1]
     library.splice(bookIndex, 1);
     displayBooks(library);
   }
+  else if (event.target.innerHTML === "Add book") {
+    newBookForm.showModal();
+  }
+  else if (event.target.innerHTML === "Close"){
+    newBookForm.close();
+  }
+  else if (event.target.innerHTML.startsWith("Status:")){
+    library[bookIndex].read = !library[bookIndex].read;
+    displayBooks(library);
+  }
 })
-
-addBookBtn.addEventListener("click", () => {
-  newBookForm.showModal();
-});
-
-closeModal.addEventListener("click", () => {
-  newBookForm.close();
-});
 
 submitBook.addEventListener("click", (event) => {
   event.preventDefault();
