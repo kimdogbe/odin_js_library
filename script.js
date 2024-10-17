@@ -4,8 +4,6 @@ const library = [
 ]
 
 const newBookForm = document.querySelector("dialog");
-const addBookBtn = document.querySelector("dialog + button");
-const closeModal = document.querySelector("dialog button");
 const submitBook = document.querySelector("dialog #book-submit");
 const shelf = document.querySelector("#shelf");
 
