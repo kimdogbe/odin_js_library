@@ -4,6 +4,7 @@ const library = [
 ]
 
 const newBookForm = document.querySelector("dialog");
+const bookInfoForm = document.querySelector("form");
 const submitBook = document.querySelector("dialog #book-submit");
 const shelf = document.querySelector("#shelf");
 
@@ -75,7 +76,7 @@ addEventListener("click", (event) => {
   }
 })
 
-submitBook.addEventListener("click", (event) => {
+bookInfoForm.addEventListener("submit", (event) => {
   event.preventDefault();
   
   let newBook = new Book(
@@ -87,6 +88,7 @@ submitBook.addEventListener("click", (event) => {
 
   addBookToLibrary(newBook);
   displayBooks(library);
+  bookInfoForm.reset();
   newBookForm.close();
 });
 
